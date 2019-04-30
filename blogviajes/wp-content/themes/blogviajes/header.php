@@ -9,5 +9,18 @@
         <?php wp_head();?>
     </head>
     <body>
-        
-       
+
+       <header>
+           <nav class="navegacion">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-4">
+                            logo aqui
+                       </div>
+                       <div class="col-md-8">
+                            menu aqui
+                       </div>
+                   </div>
+               </div>
+           </nav>
+       </header>
