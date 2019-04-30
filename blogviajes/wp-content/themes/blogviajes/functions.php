@@ -8,4 +8,9 @@ function blogviajes_styles() {
     wp_enqueue_script('bootstrapjs', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", array('jquery'), '3.3.6', true);
 }
 add_action('wp_enqueue_scripts', 'blogviajes_styles');
+
+//Navegación
+register_nav_menus(array(
+   'menu_principal' => __('Menu Principal', 'blogViajes')
+))
 ?>
