@@ -14,13 +14,14 @@
            <nav class="navegacion">
                <div class="container">
                    <div class="row">
-                       <div class="col-md-4">
-                            logo aqui
+                       <div class="navbar-header">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="img-responsive" alt="">
                        </div>
-                       <div class="col-md-8">
-                            menu aqui
+                       <div class="navbar-right">
+                            <?php wp_nav_menu(array('theme_location' => 'menu_principal')); ?>
                        </div>
                    </div>
                </div>
            </nav>
        </header>
+      
