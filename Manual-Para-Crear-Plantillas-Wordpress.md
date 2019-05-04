@@ -1,5 +1,6 @@
 **Crear sitio web en Wordpress, Manual Plantilla:**
 
+- Versión de **Bootstrap 3.3.7**
 - Crear Carpeta del Tema **theme**
 - Dentro de la carpeta **theme** Crear **style.css** con el siguiente contenido
 /* Theme Name: PlantillaWP

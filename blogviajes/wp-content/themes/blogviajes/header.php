@@ -27,7 +27,14 @@
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="img-responsive" alt="">
                        </div>
                        <div class="navbar-right">
-                            <?php wp_nav_menu(array('theme_location' => 'menu_principal')); ?>
+                            <!--Clases de Foundation de Bootstrap-->
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'menu_principal',
+                                'container_id' => 'navbar',
+                                'container_class' => 'collapse navbar-collapse',
+                                'menu_class' => 'nav navbar-nav navbar-right',
+                                )); ?>
+                            <!--Clases de Foundation de Bootstrap-->
                        </div>
                    </div>
                </div>
