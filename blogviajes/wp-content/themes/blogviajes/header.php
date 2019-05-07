@@ -8,37 +8,56 @@
         <title>Blog de Viajes</title>
         <?php wp_head();?>
     </head>
-    <body>
+    <body <?php body_class(); ?>>
 
-       <header>
-           <!-- Menu Principal Responsive-->
-           <nav class="navegacion">
+    <?php //the_post_thumbnail($size = 'post-thumbnail', $attr = ''); ?>
+    <?php $destacada = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');?>
+    <!--pre> <?php //var_dump($destacada[0]); ?> </pre-->
+    <?php $destacadajpg = $destacada[0]; ?>
+
+       <header class="site-header" style="background-image: url(<?php echo $destacadajpg; ?>)">
+          
+           <nav class="navegacion"><!-- Menu Principal Responsive-->
                <div class="container">
                    <div class="row">
-                        <!--Menu Hamburguesa-->
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!--Menu Hamburguesa-->
                        <div class="navbar-header">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="img-responsive" alt="">
-                       </div>
+                           
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"><!--Menu Hamburguesa-->
+                                <span class="sr-only">Toggle Navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button><!--Menu Hamburguesa-->
+
+                            <a href="<?php echo esc_url(home_url('/')); ?>">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="logo img-responsive" alt="">
+                            </a>
+                            
+                       </div><!--.navbar-header-->
                        <div class="navbar-right">
-                            <!--Clases de Foundation de Bootstrap-->
+                            
                             <?php wp_nav_menu(array(
                                 'theme_location' => 'menu_principal',
                                 'container_id' => 'navbar',
                                 'container_class' => 'collapse navbar-collapse',
                                 'menu_class' => 'nav navbar-nav navbar-right',
-                                )); ?>
-                            <!--Clases de Foundation de Bootstrap-->
-                       </div>
-                   </div>
-               </div>
-           </nav>
-           <!-- Menu Principal Responsive -->
+                                )); ?><!--Clases de Foundation de Bootstrap-->
+                            
+                       </div><!--.navbar-right-->
+                   </div><!--.row-->
+               </div><!--.container-->
+           </nav><!-- Menu Principal Responsive -->
+
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="titulo">
+                            <?php $description = get_bloginfo( 'description', 'display' ); ?>
+                            <h1 class="site-title"><span> <?php echo $description; ?> </span></h1>
+                        </div><!--.titulo-->
+                   </div><!--.col-md-6-->
+               </div><!--.row-->
+           </div><!--.container-->
+
        </header>
       
