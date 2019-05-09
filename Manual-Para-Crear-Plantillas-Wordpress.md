@@ -221,14 +221,12 @@
 
 - Dentro de la Carpeta **theme** Crear **index.php**
 
-        <?php
-
+       <?php
         get_header();
+        ?>
 
-        echo "Hola amigos";
-
+        <?php
         get_footer();
-
         ?>
 
 - Dentro de la Carpeta **theme** Crear **page.php** para modificar el contenido agregar el siguiente codigo:
@@ -308,23 +306,56 @@
 
        </header>
       
+      
             
 - Dentro de la Carpeta **theme** Crear **footer.php** para modificar el contenido agregar el siguiente codigo:
 
-        <footer>
+            <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="row">
+                        <?php dynamic_sidebar('footer_widget'); ?>
+                    </div>
+                </div>
 
-        </footer>
+                <div class="col-sm-4">
+                    <h3>Redes Sociales</h3>
+                    <?php wp_nav_menu(array(
+                                    'theme_location' => 'sociales_menu',
+                                    'container' => 'div',
+                                    'container_id' => 'menu-social',
+                                    'container_class' => 'menu',
+                                    'menu_id' => 'social',
+                                    'menu_class' => 'menu_items',
+                                    'depth' => 1,
+                                    'link_before' => '<span class="sr-only">',
+                                    'link_after' => '</span>',
+                                    'fallback_cb' => '',
+                                    'items-wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
+                                    )); ?><!--Clases de Foundation de Bootstrap-->
+                </div>
+            </div><!--.row-->
+        </div>
 
-        <?php wp_footer();?>
-        </body>
-        </html>
+        <p class="footer-info">
+            Blog de viajes <?php echo date('Y'); ?>
+        </p>
+    </footer>
+
+    <?php wp_footer();?>
+    </body>
+    </html>
         
 - Dentro de la Carpeta **theme** Crear **functions.php** para modificar el contenido agregar el siguiente codigo:
 
-        <?php 
+                <?php 
         function blogviajes_styles() {
             wp_enqueue_style('normalize', get_stylesheet_directory_uri().'/css/normalize.css' );
             wp_enqueue_style('bootstrap', "https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+            wp_enqueue_style('raleway', "https://fonts.googleapis.com/css?family=Raleway:900");
+            wp_enqueue_style('baskerville', "https://fonts.googleapis.com/css?family=Libre+Baskerville:700");
+            wp_enqueue_style('fontawesome', "https://use.fontawesome.com/releases/v5.8.2/css/all.css");
             wp_enqueue_style('style', get_stylesheet_uri());
 
             wp_enqueue_script('jquery');
@@ -334,17 +365,34 @@
 
         //Navegación
         register_nav_menus(array(
-           'menu_principal' => __('Menu Principal', 'blogViajes')
+           'menu_principal' => __('Menu Principal', 'blogViajes'),
+           'sociales_menu' => __('Menu Redes Sociales', 'blogViajes')
         ));
+
+        //Widget
+        function blogviajes_widgets(){
+            register_sidebar(array(
+                'name' => __('Footer Widgets'),
+                'id' => 'footer_widget',
+                'description' => 'Widgets para el Footer',
+                'before_widget' => '<div id="%1$s" class="widget col-sm-6 %2$s">',
+                'after_widget' => '</div>',
+                'before_title' => '<h3 class="widget-title">',
+                'after_title' => '</h3>',
+            ));
+        }
+        add_action('widgets_init', 'blogviajes_widgets');
 
         //Imagen Destacada
         add_theme_support('post-thumbnails');
+        add_image_size('entradas', 750, 490, true);
 
         ?>
+
         
 - Dentro de la Carpeta **theme** Crear **front-page.php** para modificar el contenido agregar el siguiente codigo:
 
-        <?php
+                <?php
         get_header();
         ?>
 
@@ -352,7 +400,47 @@
 
         <section class="container contenido">
             <div class="row">
-                Resto del contenido aquí
+               <?php 
+                    $args = array(
+                        'post_per_page' => 6
+                    );
+                    $entradas = new WP_Query($args); while($entradas->have_posts()): $entradas->the_post(); ?>
+
+                   <!-- the_title('<h2>', '</h2>');-->
+
+                <div class="col-xs-6 col-md-4 entrada">
+                    <?php the_post_thumbnail('entradas', array('class' => 'img-responsive')) ?>
+                    <div class="contenido-entrada">
+                        <?php the_title('<h3>', '</h3>');?>
+
+                        <p>
+                            Escrito el: <span><?php the_time( get_option('date-format') ); ?></span>
+                        </p>
+
+                        <p>
+                            Por: <span><?php the_author(); ?></span>
+                        </p>
+
+                        <a href="<?php the_permalink() ?>" class="btn btn-success">Leer más</a>
+                    </div>
+                </div><!--entrada-->
+
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+        </section>
+
+        <section class="categorias-blog container">
+            <h2 class="text-center">Por Categoría: </h2>
+            <?php $categorias = get_categories(); ?>
+            <div class="row">
+                <?php foreach($categorias as $categoria) { ?>
+                    <div class="col-xs-6 col-md-6 col-lg-3 categoria">
+                        <i class="<?php echo $categoria->description; ?>"></i>
+                        <a href="<?php echo get_category_link($categoria->cat_ID); ?>">
+                            <?php echo $categoria->name; ?>
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
         </section>
 
