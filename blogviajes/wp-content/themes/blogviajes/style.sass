@@ -6,6 +6,7 @@
     Tags: HTML5, CSS3, Viajes, Blog */
 
 $azul-theme: #008fd1
+$azul-theme-hover: #0070A3
 $raleway: 'Raleway', sans-serif
 $baskerville: 'Libre Baskerville', serif
 
@@ -132,7 +133,7 @@ div.contenido-entrada .btn.btn-success
     transition: all .3s ease
 
 div.contenido-entrada .btn.btn-success:hover
-    background-color: #0070A3
+    background-color: $azul-theme-hover
 
 /** POR CATEGORÍAS **/
 section.categorias-blog div.categoria
@@ -176,10 +177,13 @@ footer
 footer h3
     font-size: 22px
 
-footer a, 
+footer a,
 footer a:hover
     color: #fff
     text-decoration: none
+
+footer a:hover
+    color: #eee
  
 footer .footer-info
     background-color: #004d70
@@ -215,3 +219,38 @@ footer .footer-info
 
 #social li a[href*="instagram.com"]::before
     content: '\f16d'
+
+
+/** INTERIORES **/
+section.contenido
+    margin-top: 20px
+
+/** PAGINA CON SIDEBAR **/
+.page-template-page-sidebar-php section.contenido
+    margin-top: 0px
+
+.page-template-page-sidebar-php footer
+    margin-top: 0px
+
+.contenido-pagina
+    padding-bottom: 20px
+    padding-top: 20px
+    box-shadow: 768px 0px 0px #e6e6e6
+    text-align: justify
+
+aside.sidebar-widget
+    padding-top: 20px
+
+aside.sidebar-widget h3 
+    font-size: 30px
+
+aside.sidebar-widget li 
+    margin-bottom: 10px
+
+aside.sidebar-widget li a,
+aside.sidebar-widget li a:hover
+    color: $azul-theme
+    text-decoration: none
+    
+aside.sidebar-widget li a:hover
+    color: $azul-theme-hover

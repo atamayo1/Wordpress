@@ -207,6 +207,10 @@ footer a:hover {
   text-decoration: none;
 }
 
+footer a:hover {
+  color: #eee;
+}
+
 footer .footer-info {
   background-color: #004d70;
   font-size: 20px;
@@ -247,6 +251,49 @@ footer .footer-info {
 
 #social li a[href*="instagram.com"]::before {
   content: "";
+}
+
+/** INTERIORES **/
+section.contenido {
+  margin-top: 20px;
+}
+
+/** PAGINA CON SIDEBAR **/
+.page-template-page-sidebar-php section.contenido {
+  margin-top: 0px;
+}
+
+.page-template-page-sidebar-php footer {
+  margin-top: 0px;
+}
+
+.contenido-pagina {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  box-shadow: 768px 0px 0px #e6e6e6;
+  text-align: justify;
+}
+
+aside.sidebar-widget {
+  padding-top: 20px;
+}
+
+aside.sidebar-widget h3 {
+  font-size: 30px;
+}
+
+aside.sidebar-widget li {
+  margin-bottom: 10px;
+}
+
+aside.sidebar-widget li a,
+aside.sidebar-widget li a:hover {
+  color: #008fd1;
+  text-decoration: none;
+}
+
+aside.sidebar-widget li a:hover {
+  color: #0070A3;
 }
 
 /*# sourceMappingURL=style.css.map */
