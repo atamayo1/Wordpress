@@ -13,8 +13,8 @@
         <?php 
             $pagina_blog = get_option('page_for_posts');
             $id_imagen = get_post_thumbnail_id($pagina_blog);
-            $destacada = wp_get_attachment_url($id_imagen, 'full');
-            $destacada = $destacada[0];
+            $destacada = wp_get_attachment_image_src($id_imagen, 'full');
+            $destacadajpg = $destacada[0];
         ?>
 
        <header class="site-header" style="background-image: url(<?php echo $destacadajpg; ?>)">
@@ -54,12 +54,12 @@
                <div class="row">
                    <div class="col-md-6">
                        <div class="titulo">
-                            <?php if(is_front_page()): ?>
-                            <?php $description = get_bloginfo( 'description', 'display' ); ?>
-                            <h1 class="site-title"><span> <?php echo $description; ?> </span></h1>
-                            <?php else: ?>
-                            <h1 class="site-title"><span> <?php the_title(); ?> </span></h1>
-                            <?php endif; ?>
+                       <?php 
+                            $pagina_blog = get_option('page_for_posts');
+                            $titulo = get_the_title($pagina_blog);
+                        ?>
+                            <h1 class="site-title"><span> <?php echo $titulo; ?> </span></h1>
+                            
                         </div><!--.titulo-->
                    </div><!--.col-md-6-->
                </div><!--.row-->
