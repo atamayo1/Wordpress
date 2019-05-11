@@ -26,38 +26,38 @@
 
             <nav class="navegacion">
                 <div class="container">
-                <div class="navbar-right">
-                    <?php wp_nav_menu(array(
-                            'theme_location' => 'sociales_menu',
-                            'container' => 'div',
-                            'container_id' => 'menu-social',
-                            'container_class' => 'menu',
-                            'menu_id' => 'social',
-                            'menu_class' => 'menu_items',
-                            'depth' => 1,
-                            'link_before' => '<span class="sr-only">',
-                            'link_after' => '</span>',
-                            'fallback_cb' => '',
-                            'items-wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-                            )); ?><!--Clases de Foundation de Bootstrap-->
-                    <p>Dirección:</p> 
-                    <p>Telefono:</p>        
-                </div><!--.navbar-right-->
+                    <div class="navbar-right">
+                        <?php wp_nav_menu(array(
+                                'theme_location' => 'sociales_menu',
+                                'container' => 'div',
+                                'container_id' => 'menu-social',
+                                'container_class' => 'menu',
+                                'menu_id' => 'social',
+                                'menu_class' => 'menu_items',
+                                'depth' => 1,
+                                'link_before' => '<span class="sr-only">',
+                                'link_after' => '</span>',
+                                'fallback_cb' => '',
+                                'items-wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
+                                )); ?><!--Clases de Foundation de Bootstrap-->
+                        <p>Dirección:</p> 
+                        <p>Telefono:</p>        
+                    </div><!--.navbar-right-->
 
 
-                <div class="navbar-header">
-                           
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"><!--Menu Hamburguesa-->
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button><!--Menu Hamburguesa-->
-                    
-                </div><!--.navbar-header-->
-
-                <div class="navbar-left" >
+                    <div class="navbar-header">
                             
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"><!--Menu Hamburguesa-->
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button><!--Menu Hamburguesa-->
+                        
+                    </div><!--.navbar-header-->
+
+                    <div class="navbar-left" >
+                                
                             <?php wp_nav_menu(array(
                                 'theme_location' => 'menu_principal',
                                 'container_id' => 'navbar',
@@ -65,7 +65,7 @@
                                 'menu_class' => 'nav navbar-nav navbar-left',
                                 )); ?><!--Clases de Foundation de Bootstrap-->
                             
-                       </div><!--.navbar-left-->
+                    </div><!--.navbar-left-->
                 </div>
             </nav>
        </header>
