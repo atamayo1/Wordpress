@@ -12,8 +12,8 @@ get_header();
                     endwhile;
                 ?>
             </div>
-            <?php else: ?>
-                <?php the_content() ?>
+        <?php else: ?>
+            <?php the_content() ?>
        <?php endif;?>
     </div>
 </section>

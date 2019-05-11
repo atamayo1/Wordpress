@@ -41,12 +41,17 @@ nav.navegacion
     background-color: $azul-theme
 
 nav.navegacion ul li 
-    margin-top: 25px
+    margin-top: 20px
 
 nav.navegacion ul li 
-    margin-right: 20px
-    margin-left: 20px
     text-align: center
+
+nav.navegacion ul li.current_page_item
+    background-color: $azul-theme-hover
+    padding: 10px 0px
+
+.navbar-collapse
+    padding-bottom: 20px
 
 nav.navegacion ul li a 
     padding: 0
@@ -91,7 +96,14 @@ div.titulo h1 span
 @media (min-width: 768px)
     nav.navegacion 
         padding: 10px 0
-    
+
+    nav.navegacion li
+        margin-right: 20px
+
+    nav.navegacion ul li.current_page_item
+        border-bottom: 3px solid #fff
+        background: none
+        padding: 0px
 
     .site-header
         background-size: cover
@@ -243,6 +255,36 @@ footer .footer-info
 /** INTERIORES **/
 section.contenido
     margin-top: 20px
+
+/** CONTACTO **/
+.pagina-full-width
+    margin-top: 50px
+
+.nf-form-fields-required
+    text-align: center
+    margin-bottom: 20px
+    font-size: 18px
+
+.nf-form-content input,
+.nf-form-content textarea
+    height: 40px!important
+    border: none
+
+.nf-form-content textarea
+    height: 200px!important
+
+.nf-field-label label
+    font-weight: normal!important
+
+#nf-field-4
+    background-color: $azul-theme
+    color: #fff
+    padding: 10px 40px
+    text-transform: uppercase
+    font-weight: bold
+
+#nf-field-4:hover
+    background-color: $azul-theme-hover
 
 /** PAGINA CON SIDEBAR **/
 .page-template-page-sidebar-php section.contenido
